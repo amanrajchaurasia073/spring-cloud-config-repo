@@ -1,0 +1,23 @@
+# Specific properties for auth-service
+server:
+  port: 8081 # The port for the auth-service
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/auth_db
+    username: postgres
+    password: abc@123 # Use a secure way to manage this in production
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+# Overriding the default welcome message just for this service
+myapp:
+  welcome-message: "Welcome to the Auth Service!"
+
+# A property specific to the JWT token
+jwt:
+  secret: ThisIsAStrongAndLongSecretKeyForOurChatApplication_ChangeThis
+  expiration-ms: 86400000 # 24 hours
